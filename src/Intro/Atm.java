@@ -4,7 +4,7 @@ public class Atm {
 private BillClass[] Level= {new BillClass(1000, 10), new BillClass(100, 10),new BillClass(50, 10),new BillClass(20, 10),new BillClass(10, 10),new BillClass(5, 10),new BillClass(1, 10)};
 private int totalValue;
 public Atm() {
-	totalValue=1860;
+	totalValue=11860;
 }
 public void restock() {
 	Level[0]=new BillClass(1000,10);
@@ -14,14 +14,15 @@ public void restock() {
 	Level[4]=new BillClass(10, 10);
 	Level[5]=new BillClass(5, 10);
 	Level[6]=new BillClass(1, 10);
-	totalValue=1860;
+	totalValue=11860;
 }
-public void withDraw(int amount) {
+public String withDraw(int amount) {
 	if(amount>totalValue) {
-		System.out.println("Sorry, not enough money in this ATM.");
+		return "Sorry, not enough money in this ATM.";
 	}
 	else {
 		recWithDraw(amount, 0);
+		return "Withdraw Successful!";
 	}
 }
 private void recWithDraw(int amount, int currLevel) {
@@ -31,7 +32,7 @@ private void recWithDraw(int amount, int currLevel) {
 	}
 	Level[currLevel].setQuantity(Level[currLevel].getQuantity()-quantity);
 	totalValue-=Level[currLevel].getValue()*quantity;
-	if(currLevel<5) {
+	if(currLevel<6) {
 		recWithDraw(amount-Level[currLevel].getValue()*quantity, currLevel+1);
 	}
 }
@@ -63,6 +64,10 @@ public void denomination(int chosenValue) {
 	}
 	case 1:{
 		System.out.println(Level[6].getQuantity());
+		break;
+	}
+	default:{
+		System.out.println("Bill value doesn't exist, please enter a valid value: ");
 		break;
 	}
 	}

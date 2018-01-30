@@ -19,11 +19,19 @@ public class Bank {
 				break;
 			}
 			case"W":{
-				cashMachine.withDraw(Integer.parseInt(userInput.split("\\$")[1]));
+				try {
+				System.out.println(cashMachine.withDraw(Integer.parseInt(userInput.split("\\$")[1])));
+				}catch(Exception e) {
+					System.out.println("Invalid input, please try to enter another command: ");
+				}
 				break;
 			}
 			case"I":{
+				try {
 				cashMachine.denomination(Integer.parseInt(userInput.split("\\$")[1]));
+				}catch(Exception e) {
+					System.out.println("Invalid input, please try to enter another command: ");
+				}
 				break;
 			}
 			case"Q":{
