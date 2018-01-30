@@ -8,7 +8,7 @@ public class Bank {
 		// TODO Auto-generated method stub
 		Atm cashMachine = new Atm();
 		Scanner input=new Scanner(System.in);
-		System.out.println("Your first command:");
+		System.out.println("Please enter your first command:");
 		String userInput=input.nextLine();
 		String decision=userInput.split("\\$")[0];
 		outer:
@@ -30,13 +30,13 @@ public class Bank {
 				break outer;
 			}
 			default:{
-				System.out.println("invalid input, please try again! Thank you.");
+				System.out.println("Invalid input, please try to enter another command: ");
 			}
 			}
-			System.out.println("Your next Command:");
+			System.out.println("Please enter your next Command:");
 			userInput=input.nextLine();
 			decision=userInput.split("\\$")[0];
 		}
-		System.out.println("Successfully ended the program!");
+		System.out.println("Successfully ended the program! Have a nice day!");
 	}
 }
